@@ -41,7 +41,7 @@ jobs:
              -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/
 
 
-    Build_and_publish:
+  Build_and_publish:
         runs-on: ubuntu-latest
         steps:
          - name: Check out the code
@@ -56,15 +56,15 @@ jobs:
          - name: Build & Upload image to ECR
            uses: appleboy/docker-ecr-action@master
            with:
-           access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-           secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-           registry: ${{ secrets.REGISTRY }}
-           repo: actapp
-           region: ${{ env.AWS_REGION }}
-           tags: latest,${{ github.run_number }}
-           daemon_off: false
-           dockerfile: ./Dockerfile
-           context: ./
+              access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              registry: ${{ secrets.REGISTRY }}
+              repo: actapp
+              region: ${{ env.AWS_REGION }}
+              tags: latest,${{ github.run_number }}
+              daemon_off: false
+              dockerfile: ./Dockerfile
+              context: ./
 
 
 
