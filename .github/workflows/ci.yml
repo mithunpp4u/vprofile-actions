@@ -1,9 +1,9 @@
-name: Testing_flow
+name: Tet_mvn flow
 
 on: pull_request
 
 jobs:
-  testing_flow:
+  testing_mv_flow:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
