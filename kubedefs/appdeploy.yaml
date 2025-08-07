@@ -15,13 +15,13 @@ spec:
         app: vproapp
     spec:
       initContainers:
-        - name: init-vproapp
+        - name: init-vproapp1
           image: busybox:1.28
           command: ['sh', '-c', "until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
-        - name: init-vproapp
+        - name: init-vproapp2
           image: busybox:1.28
           command: ['sh', '-c', "until nslookup vprocache01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
-        - name: init-vproapp
+        - name: init-vproapp3
           image: busybox:1.28
           command: ['sh', '-c', "until nslookup vpromq01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
           
